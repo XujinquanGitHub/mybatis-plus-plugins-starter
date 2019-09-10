@@ -25,7 +25,7 @@ public class QueryHelp {
      * @author :  xujinquan
      */
     @SuppressWarnings("unchecked")
-    public static QueryWrapper getPredicate(BaseQuery query) {
+    public static QueryWrapper getPredicate(Object query) {
         QueryWrapper queryWrapper = new QueryWrapper();
         if (query == null) {
             return queryWrapper;

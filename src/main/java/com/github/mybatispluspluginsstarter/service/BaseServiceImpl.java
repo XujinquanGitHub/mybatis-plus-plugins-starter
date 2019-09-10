@@ -22,7 +22,7 @@ public class BaseServiceImpl<M extends MyBaseMapper<T>, T> extends ServiceImpl<M
     }
 
     @Override
-    public <M extends BaseQuery> List<T> list(M m) {
+    public List<T> list(Object m) {
         return list(QueryHelp.getPredicate(m));
     }
 }

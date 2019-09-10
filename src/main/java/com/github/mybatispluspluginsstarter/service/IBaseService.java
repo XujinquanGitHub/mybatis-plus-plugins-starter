@@ -10,5 +10,5 @@ public interface IBaseService<T> extends IService<T> {
 
     <M extends BaseQuery> IPage<M> pageByBaseRequest(M m);
 
-    <M extends BaseQuery> List<T> list(M m);
+    List<T> list(Object m);
 }
