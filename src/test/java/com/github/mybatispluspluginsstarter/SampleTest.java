@@ -1,13 +1,11 @@
 package com.github.mybatispluspluginsstarter;
 
-import com.github.mybatispluspluginsstarter.mapper.UserMapper;
 import com.github.mybatispluspluginsstarter.model.User;
 import com.github.mybatispluspluginsstarter.query.UserQuery;
 import com.github.mybatispluspluginsstarter.service.UserService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -26,6 +24,7 @@ public class SampleTest {
     @Autowired
     private UserService userService;
 
+
     @Test
     public void testSelect() {
         System.out.println(("----- selectAll method test ------"));
@@ -33,4 +32,18 @@ public class SampleTest {
         Assert.assertEquals(2, userList.size());
         userList.forEach(System.out::println);
     }
+
+
+    @Test
+    public void testInsert() {
+        System.out.println(("----- testInsert method test ------"));
+        User user=new User();
+        user.setAge(18);
+        user.setName("Jone");
+        user.setEmail("haha");
+        user.setId((long) 10);
+        userService.save(user);
+        userService.list().forEach(System.out::println);
+    }
+
 }

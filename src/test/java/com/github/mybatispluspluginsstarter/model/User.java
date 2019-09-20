@@ -1,7 +1,5 @@
 package com.github.mybatispluspluginsstarter.model;
 
-import com.github.mybatispluspluginsstarter.annotation.Query;
-import com.github.mybatispluspluginsstarter.common.BaseQuery;
 import lombok.Data;
 import lombok.experimental.Accessors;
 

@@ -99,7 +99,7 @@ public class QueryHelp {
     }
 
     @SuppressWarnings("unchecked")
-    private static List<Field> getAllFields(Class clazz, List<Field> fields) {
+    public static List<Field> getAllFields(Class clazz, List<Field> fields) {
         if (clazz != null) {
             fields.addAll(Arrays.asList(clazz.getDeclaredFields()));
             getAllFields(clazz.getSuperclass(), fields);

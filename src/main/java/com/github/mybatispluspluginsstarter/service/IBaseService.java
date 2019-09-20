@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface IBaseService<T> extends IService<T> {
 
-    <M extends BaseQuery> IPage<M> pageByBaseRequest(M m);
+    <M extends BaseQuery> IPage<T> pageByBaseRequest(M m);
 
     List<T> list(Object m);
 }
