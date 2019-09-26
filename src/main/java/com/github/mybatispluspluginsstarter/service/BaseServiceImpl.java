@@ -23,7 +23,7 @@ public class BaseServiceImpl<M extends MyBaseMapper<T>, T> extends ServiceImpl<M
     @Override
     public <M extends BaseQuery> IPage<T> pageByBaseRequest(M m) {
         Class aClass = ReflectionUtil.getClass(this.getClass(), 1);
-        List<Field> allFields = QueryHelp.getAllFields(aClass, new ArrayList<>());
+        List<Field> allFields = ReflectionUtil.getAllFields(aClass);
         m.setAllowOrderField(allFields.stream().map(u -> u.getName()).collect(Collectors.toSet()));
         return page(m.getPage(), QueryHelp.getPredicate(m));
     }
