@@ -1,7 +1,11 @@
 package com.github.mybatispluspluginsstarter.common.util;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @program: mybatis-plus-plugins-starter
@@ -47,6 +51,20 @@ public class ReflectionUtil {
         Type genType = type.getGenericSuperclass();
         Type[] types = ((ParameterizedType) genType).getActualTypeArguments();
         return(Class) types[1];
+    }
+
+
+    @SuppressWarnings("unchecked")
+    private static List<Field> getAllFields(Class clazz, List<Field> fields) {
+        if (clazz != null) {
+            fields.addAll(Arrays.asList(clazz.getDeclaredFields()));
+            getAllFields(clazz.getSuperclass(), fields);
+        }
+        return fields;
+    }
+
+    public static List<Field> getAllFields(Class clazz) {
+        return getAllFields(clazz, new ArrayList<>());
     }
 
 }

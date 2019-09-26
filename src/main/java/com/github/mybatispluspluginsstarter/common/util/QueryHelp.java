@@ -31,7 +31,7 @@ public class QueryHelp {
             return queryWrapper;
         }
         try {
-            List<Field> fields = getAllFields(query.getClass(), new ArrayList<>());
+            List<Field> fields = ReflectionUtil.getAllFields(query.getClass());
             for (Field field : fields) {
                 boolean accessible = field.isAccessible();
                 field.setAccessible(true);
@@ -98,12 +98,5 @@ public class QueryHelp {
         return queryWrapper;
     }
 
-    @SuppressWarnings("unchecked")
-    public static List<Field> getAllFields(Class clazz, List<Field> fields) {
-        if (clazz != null) {
-            fields.addAll(Arrays.asList(clazz.getDeclaredFields()));
-            getAllFields(clazz.getSuperclass(), fields);
-        }
-        return fields;
-    }
+
 }
