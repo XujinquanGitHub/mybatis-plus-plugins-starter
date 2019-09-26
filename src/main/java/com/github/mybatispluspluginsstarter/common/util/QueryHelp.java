@@ -5,12 +5,10 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.github.mybatispluspluginsstarter.annotation.Query;
-import com.github.mybatispluspluginsstarter.common.BaseQuery;
-import lombok.extern.slf4j.Slf4j;
+import org.mybatis.logging.Logger;
+import org.mybatis.logging.LoggerFactory;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -18,8 +16,8 @@ import java.util.List;
  * @author xujinquan
  * @date 2019-6-4 14:59:48
  */
-@Slf4j
 public class QueryHelp {
+    private static Logger logger = LoggerFactory.getLogger(QueryHelp.class);
 
     /**
      * @author :  xujinquan
@@ -93,7 +91,7 @@ public class QueryHelp {
                 field.setAccessible(accessible);
             }
         } catch (Exception e) {
-            log.error(e.getMessage(), e);
+            logger.error(() -> e.getMessage(), e);
         }
         return queryWrapper;
     }

@@ -7,9 +7,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.mybatispluspluginsstarter.common.util.StringUtil;
 import lombok.Data;
 import lombok.experimental.Accessors;
-import org.springframework.util.CollectionUtils;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
